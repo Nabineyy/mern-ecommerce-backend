@@ -9,15 +9,7 @@ const cors = require("cors");
 connect_DB();
 
 //middleware
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://graphics-card-store.vercel.app/"
-    ], // replace with the origin of your client-side application
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(json_converter);
 app.use(cookieParser());
 app.use("/api/v1", router);
