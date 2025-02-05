@@ -8,7 +8,7 @@ const cors = require("cors");
 //connecting to database
 connect_DB()
 const corsOptions = {
-  origin: 'https://graphics-card-store.vercel.app',  // Explicitly allow this origin
+  origin: ['https://graphics-card-store.vercel.app','http://localhost:3000'],  // Explicitly allow this origin
   credentials: true, // Allow credentials to be included in the request
 };;
 
