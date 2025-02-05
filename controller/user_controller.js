@@ -79,9 +79,12 @@ const sign_up = async (req, res) => {
       process.env.Secret_Key
     );
     let token_option = {
-      expire: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-      httpOnly: true,
+      expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000), // 90 days from now
+      httpOnly: true, // Makes the cookie accessible only via HTTP requests
+      secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only sent over HTTPS in production
+      sameSite: 'None', // For cross-origin requests with credentials
     };
+    
     return res.cookie("token", token, token_option).json({
       success: true,
       message: "Your Signed Up",
