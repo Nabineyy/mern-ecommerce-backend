@@ -99,11 +99,16 @@ const sign_up = async (req, res) => {
 };
 
 const sign_out = async (req, res) => {
-  res.clearCookie("token").json({
+  // Clear the cookie
+  res.clearCookie("token");
+
+  // Send the response back
+  res.json({
     success: true,
-    message: "signed out successfully",
+    message: "Signed out successfully",
   });
 };
+
 const user_info = async (req, res) => {
   try {
     const user_id = req.user._id;
