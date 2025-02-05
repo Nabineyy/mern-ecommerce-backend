@@ -6,10 +6,14 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 //connecting to database
-connect_DB();
+connect_DB()
+const corsOptions = {
+  origin: 'https://graphics-card-store.vercel.app',  // Explicitly allow this origin
+  credentials: true, // Allow credentials to be included in the request
+};;
 
 //middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(json_converter);
 app.use(cookieParser());
 app.use("/api/v1", router);
