@@ -13,6 +13,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "https://graphics-card-store.vercel.app/"
     ], // replace with the origin of your client-side application
     credentials: true,
   })
